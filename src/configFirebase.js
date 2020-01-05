@@ -16,22 +16,26 @@ const config = {
 
 firebase.initializeApp(config);
 
-// Initialize Cloud Firestore through Firebase
-let db = firebase.firestore();
+// // Initialize Cloud Firestore through Firebase
+// let db = firebase.firestore();
 
-// Disable deprecated features
-db.settings({
-  timestampsInSnapshots: true
-});
+// // Disable deprecated features
+// db.settings({
+//   timestampsInSnapshots: true
+// });
 
-db.enablePersistence({ experimentalTabSynchronization: true });
+// db.enablePersistence({ experimentalTabSynchronization: true });
 
-const storage = firebase.storage();
+// const storage = firebase.storage();
 
 const messaging = firebase.messaging();
 
+console.log("messaging", messaging);
+
+messaging.usePublicVapidKey(
+  "BNMO8mCC08rwgR79XxzwGtubbCdX0vjuN9ITY6YR20b6ETCqx72t680eIul1CVqQik9vbUOsIaHCfWINzM8rkOY"
+);
+
 export default {
-  db,
-  storage,
   messaging
 };
